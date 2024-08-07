@@ -1,0 +1,16 @@
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: 'mongoDB'
+    ports:
+      - 2727
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${LOG_DB_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${LOG_DB_ROOT_PASS}
+    volumes:
+      - ./volume/mongodb/mongodb.js:/docker-entrypoint-initdb.d/mongo-init.js
+    networks:
+      - main

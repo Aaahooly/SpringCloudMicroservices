@@ -1,0 +1,15 @@
+# Feign Client
+
+spring:
+  application:
+    name: feign-eureka-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+
+
+
+
+

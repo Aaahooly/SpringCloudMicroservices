@@ -1,0 +1,18 @@
+# Eureka Client -> конфиг файл для сбора настроек из конфиг сервера
+
+#server:
+#  port: 8889
+
+spring:
+  application:
+    name: eureka-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+
+
+
+
+

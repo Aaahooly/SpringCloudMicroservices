@@ -1,0 +1,9 @@
+# Api-Gateway -> конфиг файл для сбора настроек из конфиг сервера
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      #Настройки для конекта к конфиг серверу
+      uri: http://localhost:1111
+      fail-fast: true

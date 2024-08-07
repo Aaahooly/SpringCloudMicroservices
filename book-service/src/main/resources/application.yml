@@ -1,0 +1,15 @@
+# Book-service
+
+spring:
+  application:
+    name: book-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/testdb
+      username: root
+      password: root
