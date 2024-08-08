@@ -1,0 +1,10 @@
+# Eureka Server-> конфиг файл для сбора настроек из конфиг сервера
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    config:
+      uri: http//localhost:1111
+      fail-fast: true
+      password: admin
+      username: user
