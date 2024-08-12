@@ -18,4 +18,6 @@ public class FeignControllerDemo {
     String getResponseEurekaClientService(){
         return feignClientInterface.getResponseEurekaClient();
     }
+
+
 }

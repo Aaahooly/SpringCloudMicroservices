@@ -1,23 +1,34 @@
 package eurekaTest.Controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import eurekaTest.feign.FeignBookService;
+import eurekaTest.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/main")
 public class TestController {
 
-    @GetMapping("/test")
-    public String test(@Value("${eureka.instance.instance-id}") String port){
-        return "Instance" + " " + port;
+
+    private final FeignBookService feignBookService;
+
+    public TestController(FeignBookService feignBookService) {
+        this.feignBookService = feignBookService;
     }
 
 
-
-    @GetMapping("/request")
-    public String test2(){
-        return "Connect";
+    @GetMapping()
+    public ResponseEntity<HttpStatus> getAllBooks(){
+        for (Book book: feignBookService.getAllBooksFromBookService()) {
+            System.out.println(book);
+        }
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 }
